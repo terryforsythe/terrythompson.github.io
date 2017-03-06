@@ -38,7 +38,7 @@
                 <a class="mdl-navigation__link is-active" href="repos.html">Repositories</a>
             </nav>
         </div>
-        <main class="mdl-layout__content" id="reposTable">
+        <main class="mdl-layout__content" id="reposMain">
             <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text">GitHub Repositories</h2>
             </div>
@@ -50,25 +50,12 @@
                         <th class="mdl-data-table__cell--non-numeric">URL</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">fortune-teller</td>
-                        <td>2017-01-30T02:09:00Z</td>
-                        <td>https://github.com/terrythompson/fortune-teller</td>
-                    </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">demo</td>
-                        <td>demo</td>
-                        <td>demo</td>
-                    </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">demo</td>
-                        <td>demo</td>
-                        <td>demo</td>
-                    </tr>
+                <tbody id="reposTableBody">
+                    <!-- Table row entries are populated via github-repos.js -->
                 </tbody>
             </table>
         </main>
+
         <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer__left-section">
                 <div class="mdl-logo"></div>
