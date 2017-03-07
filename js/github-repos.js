@@ -6,13 +6,11 @@ $(document).ready(function() {
 
         $.each(response, function(index, repo) {
             var repoNameLink = "<a href=\"" + repo.html_url + "\" target=\"_blank\">" + repo.name + "</a>";
-            var repoUpdateDate = repo.updated_at.substring(0, 10);
-            var repoUpdateTime = repo.updated_at.substring(11, 16) + " EST";
-            var repoUpdate = repoUpdateDate + ", " + repoUpdateTime;
 
-            $('#reposTableBody').append("<tr>" + tableCellNonNumeric + repoNameLink + "</td><td>" + repoUpdate + "</td></tr>");
+            var repoUpdate = new Date(repo.updated_at);
+            var repoUpdateLocale = repoUpdate.toString("MM/dd/yy, hh:mm tt");
+
+            $('#reposTableBody').append("<tr>" + tableCellNonNumeric + repoNameLink + "</td><td>" + repoUpdateLocale + ", EST</td></tr>");
         });
-
     });
-
 });
