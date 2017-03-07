@@ -1,16 +1,18 @@
 $(document).ready(function() {
-      $.getJSON('https://api.github.com/users/terrythompson/repos', function(response) {
 
-         for (var repoIndex = 0; repoIndex < response.length; repoIndex++) {
-           var repo = response[repoIndex];
-           var repoName = repo.name;
-           var repoUpdated = repo.updated_at;
-           var repoLink = repo.html_url;
+    var tableCellNonNumeric = "<td class=\"mdl-data-table__cell--non-numeric\">";
 
-           $('#reposTableBody').append("<tr><td class=\"mdl-data-table__cell--non-numeric\">" + repoName +
-           "</td><td>" + repoUpdated + "</td><td class=\"mdl-data-table__cell--non-numeric\">"
-           + repoLink + "</td></tr>");
-         }
+    $.getJSON('https://api.github.com/users/terrythompson/repos', function(response) {
 
-      });
+        $.each(response, function(index, repo) {
+            var repoNameLink = "<a href=\"" + repo.html_url + "\" target=\"_blank\">" + repo.name + "</a>";
+            var repoUpdateDate = repo.updated_at.substring(0, 10);
+            var repoUpdateTime = repo.updated_at.substring(11, 16) + " EST";
+            var repoUpdate = repoUpdateDate + ", " + repoUpdateTime;
+
+            $('#reposTableBody').append("<tr>" + tableCellNonNumeric + repoNameLink + "</td><td>" + repoUpdate + "</td></tr>");
+        });
+
+    });
+
 });
