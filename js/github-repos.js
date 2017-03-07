@@ -8,9 +8,9 @@ $(document).ready(function() {
             var repoNameLink = "<a href=\"" + repo.html_url + "\" target=\"_blank\">" + repo.name + "</a>";
 
             var repoUpdate = new Date(repo.updated_at);
-            var repoUpdateLocale = repoUpdate.toString("MM/dd/yy, hh:mm tt");
+            var repoUpdateLocale = repoUpdate.toString("MM/dd/yy, HH:mm");
 
-            $('#reposTableBody').append("<tr>" + tableCellNonNumeric + repoNameLink + "</td><td>" + repoUpdateLocale + ", EST</td></tr>");
+            $('#reposTableBody').append("<tr>" + tableCellNonNumeric + repoNameLink + "</td><td>" + repoUpdateLocale + " EST</td></tr>");
         });
     });
 });
